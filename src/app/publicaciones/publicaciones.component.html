@@ -1,10 +1,21 @@
-<ion-grid>
-    <ion-button>Vista grid</ion-button>
-    <ion-button>Vista - Etiquetado</ion-button>
-    
-    <ion-row> 
-        <ion-col size="4"  *ngFor="let publicacion of publicaciones">
-            <img [src]="publicacion.imagen" alt="" [routerLink]="['/publicacion', publicacion.id]">
-        </ion-col>
-    </ion-row>
+<ion-grid> <!-- Publicaciones -->
+	<ion-row>
+		<ion-col>
+			<ion-button fill="translucent" class="boton-grid" (click)="toggleActivo('grid')">
+				<ion-icon name="grid-outline"></ion-icon>
+			</ion-button>
+		</ion-col>
+		<ion-col>
+			<ion-button fill="translucent" class="boton-grid" (click)="toggleActivo('etiquetado')">
+				<ion-icon name="pricetag-outline"></ion-icon>
+			</ion-button>
+		</ion-col>
+	</ion-row>
+	<ion-row *ngIf="activo =='grid'"> 
+		<ion-col size="4" *ngFor="let publicacion of publicaciones"> 
+			<ion-thumbnail size="">
+				<ion-img [src]="publicacion.src" [routerLink]="['/publicacion', publicacion.id]"></ion-img>
+			</ion-thumbnail>
+		</ion-col>
+	</ion-row>
 </ion-grid>

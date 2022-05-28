@@ -1,30 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { DatabaseService } from './database.service';
 
 @Component({
-  selector: 'app-raiz',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+	selector: 'app-raiz',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'ionic-angular-1894608';
-  total= 90;
+export class AppComponent implements OnInit {
+	title = 'ionic-angular-1894608';
 
-  esCierto = true;
+	constructor(private bd: DatabaseService) {}
 
-  imagenes = [
-    "assets/perrillo.jpeg",
-    "assets/perrillo.jpeg",
-    "assets/perrillo.jpeg",
-    "assets/perrillo.jpeg",
-    "assets/perrillo.jpeg"
-  ];
+	usuario: string = "";
+	avatar: string = "";
 
-  perfil = true;
-
-  togglePerfil(): void {
-    this.perfil = !this.perfil;
-  }
-
-
-  
+	ngOnInit(): void {
+		this.bd.getDatosUsuario().subscribe((res: any) => {
+			console.log(res);
+		});
+	}
 }

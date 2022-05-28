@@ -13,3 +13,24 @@
     border: solid 1px gray;
     margin-bottom: 10px;
 }
+
+.opciones {
+    display: flex;
+    
+}
+
+ion-avatar{
+    align-self: center;
+    width: 34px;
+    height: 34px;
+    
+}
+
+.usuario-card-header {
+    display: flex;
+}
+
+.label{
+    align-self: center;
+    margin-left: 10px;
+}

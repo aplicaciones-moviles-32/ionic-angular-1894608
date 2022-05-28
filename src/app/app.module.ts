@@ -15,18 +15,33 @@ import { PublicacionComponent } from './publicacion/publicacion.component';
 import { FormsModule } from '@angular/forms';
 import { RoutesModule } from './routes.module';
 
+import { PopoverContentComponent } from './popover-content/popover-content.component';
+import { HistoriasComponent } from './historias/historias.component';
+import { HistoriaContenidoComponent } from './historia-contenido/historia-contenido.component';
+
+import { environment } from 'src/environments/environment';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { PopoverComponent } from './popover/popover.component';
+import { PostComponent } from './post/post.component';
+
 @NgModule({
 	declarations: [
 		AppComponent,
 		FeedComponent,
 		PerfilComponent,
 		TabsComponent,
+		PopoverContentComponent,
+		PopoverComponent,
+		HistoriasComponent,
+		HistoriaContenidoComponent,
 		PublicacionComponent,
+		PostComponent,
 		PublicacionesComponent
 	],
 	imports: [
 		BrowserModule,
 		FormsModule,
+		HttpClientModule,
 		AppRoutingModule,
 		IonicModule.forRoot(),
 		RoutesModule
