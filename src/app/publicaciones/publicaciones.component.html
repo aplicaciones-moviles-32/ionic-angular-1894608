@@ -1,11 +1,10 @@
-
-<ion-grid> <!--Publicaciones-->
+<ion-grid>
     <ion-button>Vista grid</ion-button>
     <ion-button>Vista - Etiquetado</ion-button>
     
     <ion-row> 
         <ion-col size="4"  *ngFor="let publicacion of publicaciones">
-            <img [src]="publicacion.imagen" alt="">
+            <img [src]="publicacion.imagen" alt="" [routerLink]="['/publicacion', publicacion.id]">
         </ion-col>
     </ion-row>
 </ion-grid>
