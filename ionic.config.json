@@ -1,0 +1,10 @@
+{
+	"defaultProject": "ionic-angular-1894608",
+	"projects": {
+		"ionic-angular-1894608": {
+			"name": "ionic-angular-1894608",
+			"integrations": {},
+			"type": "angular"
+		}
+	}
+}

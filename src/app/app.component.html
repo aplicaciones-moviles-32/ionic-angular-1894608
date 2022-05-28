@@ -1,0 +1,30 @@
+<ion-content>
+  <a routerLink="/feed">Feed</a>
+  <ion-toggle color="primary"></ion-toggle>
+  <ion-button (click)="togglePerfil()">
+    <span *ngIf="perfil">Vista feed</span>
+    <span *ngIf="!perfil">Vista Perfil</span>
+  </ion-button>
+
+  <app-feed *ngIf="!perfil"></app-feed>
+  <app-perfil *ngIf="perfil"></app-perfil>
+</ion-content>
+
+<!--
+
+
+<p>{{title}}</p>
+
+<p *ngIf="esCierto">Hello, world</p>
+
+<div *ngFor="let imagen of imagenes">
+  imagen
+  <img src="assets/perrillo.jpeg" alt="" width="250px">
+</div>
+
+<div *ngFor="let perrillo of perrillos">
+  <p>{{perrillo.nombre}}</p>
+  <img src="{{perrillo.src}}" alt="">
+</div>
+
+-->
