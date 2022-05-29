@@ -7,29 +7,29 @@
 						<ion-col>
 							<div class="container-img">
 								<ion-avatar>
-									<ion-img [src]="usuario.fotoPerfil" alt="" class="fotoperfil"></ion-img>
+									<ion-img [src]="'data:image/jpeg;base64,' + perfil.imagenDePerfil" alt="" class="fotoperfil"></ion-img>
 								</ion-avatar>
 							
 								<div class="historia"></div>
 							</div>
 						</ion-col>
 						<ion-col>
-							<p><strong></strong></p>
+							<p><strong>NUM</strong></p>
 							<p>Posts</p>
 						</ion-col>
 						<ion-col>
-							<p><strong>{{usuario.seguidores}}</strong></p>
+							<p><strong>{{perfil.seguidores}}</strong></p>
 							<p>Followers</p>
 						</ion-col>
 						<ion-col>
-							<p><strong>{{usuario.seguidos}}</strong></p>
+							<p><strong>{{perfil.seguidos}}</strong></p>
 							<p>Following</p>
 						</ion-col>
 					</ion-row>
 					<ion-row>
-						<ion-col>{{usuario.alias}}</ion-col>
+						<ion-col><strong>@{{perfil.usuario}}</strong></ion-col>
 					</ion-row>
-					<ion-row>{{usuario.bio}}</ion-row>
+					<ion-row>{{perfil.descripcion}}</ion-row>
 					<ion-row>
 						<ion-button (click)="toggleEditar()">Editar perfil</ion-button>
 					</ion-row>

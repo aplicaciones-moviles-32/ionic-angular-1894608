@@ -15,12 +15,14 @@ export class FeedComponent implements OnInit {
 	constructor(private http: HttpClient, private db: DatabaseService, private popover: PopoverController) {}
 
 	ngOnInit(): void {
-		this.db.getPublicaciones().subscribe((res: any) => {
+		this.db.getRawPublicaciones().subscribe((res: any) => {
 			this.posts = res;
 		});
 	}
 
 	posts: any = [];
+	listaDeUsuarios: any = [];
+	usuarios: any = [];
 
 	isPopoverOpen: boolean = false;
 

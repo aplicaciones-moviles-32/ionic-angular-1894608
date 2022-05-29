@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 ///import { Input } from '@angular/forms';
 
 import { HttpClient } from '@angular/common/http';
+import { DatabaseService } from '../database.service';
 
 @Component({
 	selector: 'app-perfil',
@@ -10,13 +11,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PerfilComponent implements OnInit {
 
-	constructor(private http: HttpClient) {}
+	constructor(private http: HttpClient, private db: DatabaseService) {}
 
 	ngOnInit(): void {
 		this.getDatosUsuario();
 	}
 
-	usuario: any = {}
+	perfil: any = {
+		cantidadDePosts: 0
+	}
 
 	editando = false;
 
@@ -27,13 +30,15 @@ export class PerfilComponent implements OnInit {
 	@Input() bio: string = "";
 
 	guardarBio(): void {
-		this.usuario.descripcion = this.bio;
+		this.perfil.descripcion = this.bio;
 	}
 	
 	getDatosUsuario(): void {
-		this.http.get('https://instacram-47c51-default-rtdb.firebaseio.com/usuario.json').subscribe(res => {
-			console.log(res);
-			this.usuario = res;
+		this.db.getRawUsuarios().subscribe((respuesta: any) => {
+			respuesta.forEach((element: any) => {
+				if (element.usuario == "r2d2")
+					this.perfil = element;
+			});
 		});
 	}
 }

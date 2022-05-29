@@ -11,10 +11,10 @@
 			</ion-button>
 		</ion-col>
 	</ion-row>
-	<ion-row *ngIf="activo =='grid'"> 
+	<ion-row *ngIf="activo == 'grid'"> 
 		<ion-col size="4" *ngFor="let publicacion of publicaciones"> 
 			<ion-thumbnail size="">
-				<ion-img [src]="publicacion.src" [routerLink]="['/publicacion', publicacion.id]"></ion-img>
+				<ion-img class="publicacion-thumbnail" [src]="'data:image/jpeg;base64,' + publicacion.imagen" [routerLink]="['/publicacion', publicacion.id]"></ion-img>
 			</ion-thumbnail>
 		</ion-col>
 	</ion-row>

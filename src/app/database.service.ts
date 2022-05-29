@@ -8,12 +8,25 @@ export class DatabaseService {
 
 	constructor(private http: HttpClient) { }
 
-	getPublicaciones(): any {
+	getRawPublicaciones(): any {
 		return this.http.get('https://instacram-47c51-default-rtdb.firebaseio.com/publicaciones.json');
 	}
 
-	getDatosUsuario(): any {
-		return this.http.get('https://instacram-47c51-default-rtdb.firebaseio.com/usuario.json');
+	getRawUsuarios(): any {
+		return this.http.get('https://instacram-47c51-default-rtdb.firebaseio.com/usuarios.json');
+	}
+
+	getPublicacionesDeUsuario(usuario: any): any {
+		var todasLasPublicaciones: any = this.getRawPublicaciones();
+		var publicaciones: any = [];
+
+		todasLasPublicaciones.subscribe((respuesta: any) => {
+			respuesta.forEach((element: any) => {
+				if (element.usuario == usuario)
+					publicaciones.push(element);
+			});
+		});
+		return publicaciones;
 	}
 
 	getPublicacionesUsuario(): any {
