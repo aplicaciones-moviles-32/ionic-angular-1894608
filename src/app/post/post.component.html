@@ -1,1 +1,6 @@
-<p>post works!</p>
+<form #F = "ngForm" (ngSubmit)="onSubmit(F)" ngNativeValidate>
+	<ion-label>Descripción: </ion-label>
+	<ion-input required></ion-input>
+	{{nuevoPost.caption}}
+	<ion-button type="submit">Subir foto</ion-button>
+</form> 

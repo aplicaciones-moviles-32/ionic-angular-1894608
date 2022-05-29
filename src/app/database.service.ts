@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
 	providedIn: 'root'
@@ -34,19 +34,21 @@ export class DatabaseService {
 	}
 
 	getPublicacionDetalle(id: string): any {
-		return this.http.get('https://instacram-47c51-default-rtdb.firebaseio.com/usuario/publicaciones'+ id +'.json');
+		return this.http.get('https://instacram-47c51-default-rtdb.firebaseio.com/usuario/publicaciones' + id + '.json');
 	}
 
 	// POST
 	postPublicacion(post: any) {
-		return this.http.post('https://instacram-47c51-default-rtdb.firebaseio.com/usuario/publicaciones.json', post);
+		return this.http.post('https://instacram-47c51-default-rtdb.firebaseio.com/publicaciones.json', post);
 	}
 
 	// DELETE
-	deletePublicacion(idPost: any) {
-		//return this.http.post('https://instacram-47c51-default-rtdb.firebaseio.com/usuario/publicaciones.json', idPost)
+	deletePublicacion(id: number) {
+		return this.http.delete('https://instacram-47c51-default-rtdb.firebaseio.com/publicaciones/' + id.toString() + '.json')
 	}
 
 	// PUT
-	updatePublicacion() {}
+	updatePublicacion(id: number, nuevosDatos: any) {
+		return this.http.put('https://instacram-47c51-default-rtdb.firebaseio.com/publicaciones/' + id.toString() + '.json', nuevosDatos)
+	}
 }
