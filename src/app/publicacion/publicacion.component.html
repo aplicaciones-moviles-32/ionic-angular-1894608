@@ -2,17 +2,20 @@
 	<ion-card-header>
 		<ion-grid>
 			<ion-row>
-				<ion-col size="11">
-					<strong> {{publicacionImprimir.id}} </strong>
-				</ion-col>
-				<ion-col size="1">
-					<ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+				<ion-col size="10">
+					<div class="usuario-card-header">    
+						<ion-avatar>
+							<img [src]="'data:image/jpeg;base64,' + publicacionImprimir.imagen" width="50px">
+						</ion-avatar>
+						<ion-label class="nombre-de-usuario">@{{publicacionImprimir.usuario}}</ion-label>
+					</div>
 				</ion-col>
 			</ion-row>
 		</ion-grid>
 	</ion-card-header>
 	<ion-card-content>
-		<img [src]="'data:image/jpeg;base64,'+publicacionImprimir.imagen" alt="" height="120px">
+		<ion-img class="publicacion-foto" [src]="'data:image/jpeg;base64,' + publicacionImprimir.imagen"></ion-img>
+		<p class="descripcion">{{publicacionImprimir.descripcion}}</p>
 	</ion-card-content>
 	<div>
 		<ion-grid>

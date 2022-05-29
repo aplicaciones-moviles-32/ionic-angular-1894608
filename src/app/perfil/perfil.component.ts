@@ -17,9 +17,7 @@ export class PerfilComponent implements OnInit {
 		this.getDatosUsuario();
 	}
 
-	perfil: any = {
-		cantidadDePosts: 0
-	}
+	perfil: any = {}
 
 	editando = false;
 

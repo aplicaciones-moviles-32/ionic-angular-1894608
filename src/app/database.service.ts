@@ -12,6 +12,10 @@ export class DatabaseService {
 		return this.http.get('https://instacram-47c51-default-rtdb.firebaseio.com/publicaciones.json');
 	}
 
+	getRawUsuario(id: number): any {
+		return this.http.get('https://instacram-47c51-default-rtdb.firebaseio.com/usuarios/' + id.toString() + '.json');
+	}
+
 	getRawUsuarios(): any {
 		return this.http.get('https://instacram-47c51-default-rtdb.firebaseio.com/usuarios.json');
 	}
@@ -29,12 +33,8 @@ export class DatabaseService {
 		return publicaciones;
 	}
 
-	getPublicacionesUsuario(): any {
-		return this.http.get('https://instacram-47c51-default-rtdb.firebaseio.com/usuario/publicaciones.json');
-	}
-
 	getPublicacionDetalle(id: string): any {
-		return this.http.get('https://instacram-47c51-default-rtdb.firebaseio.com/usuario/publicaciones' + id + '.json');
+		return this.http.get('https://instacram-47c51-default-rtdb.firebaseio.com/publicaciones/' + id + '.json');
 	}
 
 	// POST

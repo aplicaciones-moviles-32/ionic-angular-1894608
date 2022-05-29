@@ -22,13 +22,18 @@ export class FeedComponent implements OnInit {
 	isPopoverOpen: boolean = false;
 
 	cargarFeed(): void {
-		this.db.getRawPublicaciones().subscribe((res: any) => {
-			this.posts = res;
+		this.db.getRawPublicaciones().subscribe((respuesta: any) => {
+			this.posts = respuesta;
+		});
+		this.posts.forEach((post: any) => {
+			this.db.getRawUsuario(post.idUsuario).subscribe((respuesta: any) => {
+				post.imagenDePerfil = respuesta.imagenDePerfil;
+			});
 		});
 	}
 
 	borrar(postId: any): void {
-		this.db.deletePublicacion(postId).subscribe(res => {
+		this.db.deletePublicacion(postId).subscribe(respuesta => {
 			this.cargarFeed();
 		});
 	}
@@ -40,7 +45,7 @@ export class FeedComponent implements OnInit {
 	}
 
 	guardar(idPost: number, nuevoCaption: any) {
-		this.db.updatePublicacion(idPost, nuevoCaption).subscribe(res => {
+		this.db.updatePublicacion(idPost, nuevoCaption).subscribe(respuesta => {
 			console.log("Se actualizó la base de datos")
 		});
 

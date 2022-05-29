@@ -19,11 +19,11 @@
 								<ion-col size="10">
 									<div class="usuario-card-header">    
 										<ion-avatar>
-											<img [src]="'data:image/jpeg;base64,' + post.imagen" width="50px">
+											<img [src]="'data:image/jpeg;base64,' + post.imagenDePerfil" width="50px">
 										</ion-avatar>
 										<ion-label class="nombre-de-usuario">@{{post.usuario}}</ion-label>
 									</div>
-									</ion-col>
+								</ion-col>
 								<ion-col size="2">
 									<ion-button (click)="borrar(idPost)">Borrar</ion-button>
 									<ion-button (click)="editar()">Editar</ion-button>
@@ -39,8 +39,8 @@
 							</ion-row>
 							<ion-row>
 								<div class="editar" *ngIf="editando">
-									<ion-input placeholder="Editar caption: Ejemplo: Hola, mundo" [(ngModel)]="post.caption"></ion-input>
-									{{post.caption}}
+									<ion-input placeholder="Editar caption" [(ngModel)]="post.descripcion"></ion-input>
+									{{post.descripcion}}
 									<ion-button (click)="guardar(idPost, post)">Guardar cambios</ion-button>
 								</div>
 							</ion-row>

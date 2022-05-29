@@ -22,6 +22,8 @@ export class PublicacionComponent implements OnInit {
 	}
 
 	obtenerPublicacion(id: string) : any {
-		this.bd.getPublicacionDetalle(id);
+		this.bd.getPublicacionDetalle(id).subscribe((respuesta: any) => {
+			this.publicacionImprimir = respuesta;
+		});
 	}
 }

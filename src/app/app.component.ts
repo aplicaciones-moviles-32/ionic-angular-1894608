@@ -10,10 +10,16 @@ import { DatabaseService } from './database.service';
 export class AppComponent implements OnInit {
 	title = 'ionic-angular-1894608';
 
-	constructor(private bd: DatabaseService) {}
+	constructor(private db: DatabaseService) {}
 
-	usuario: string = "";
-	avatar: string = "";
+	imagenDePerfil: string = "";
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		this.db.getRawUsuarios().subscribe((respuesta: any) => {
+			respuesta.forEach((element: any) => {
+				if (element.usuario == "r2d2")
+					this.imagenDePerfil = element.imagenDePerfil;
+			});
+		});
+	}
 }
